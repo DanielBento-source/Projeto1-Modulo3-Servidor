@@ -1,33 +1,47 @@
 const express = require('express');
+const cors = require('cors');
+const res = require('express/lib/response');
 const port = 3004;
 const app = express();
 
 // configurando aplicação para trabalhar com json
 app.use(express.json());
+app.use(cors());
 
 // definir dados para usar na aplicação
 
-const acai = [
+const paletas = [
   {
     id: 1,
-    sabor: 'oreo',
-    descricao: 'Açai com Leite Condensado',
-    foto: 'https://storage.googleapis.com/domain-images/60b1f285-d77c-444a-b734-1bc1efd2c472/products/gallery_bd17d9a3-cd93-44a9-9b44-f017a1c7a329.jpg',
-    preco: 10.0,
+    flavor: 'Açaí com Leite Condensado',
+    description:
+      'Quam vulputate dignissim suspendisse in est ante in nibh mauris.',
+    image: './assets/images/acai-com-leite-condensado.png',
+    price: 10.0,
   },
   {
     id: 2,
-    sabor: 'nutella',
-    descricao: 'Açai com Leite Condensado',
-    foto: 'https://storage.googleapis.com/domain-images/60b1f285-d77c-444a-b734-1bc1efd2c472/products/gallery_bd17d9a3-cd93-44a9-9b44-f017a1c7a329.jpg',
-    preco: 7.0,
+    flavor: 'Banana com Nutella',
+    description:
+      'Quam vulputate dignissim suspendisse in est ante in nibh mauris.',
+    image: './assets/images/banana-com-nutella.png',
+    price: 10.0,
   },
   {
     id: 3,
-    sabor: 'Açai com Leite Condensado',
-    descricao: 'Açai com Leite Condensado',
-    foto: 'https://storage.googleapis.com/domain-images/60b1f285-d77c-444a-b734-1bc1efd2c472/products/gallery_bd17d9a3-cd93-44a9-9b44-f017a1c7a329.jpg',
-    preco: 10.0,
+    flavor: 'Chocolate Belga',
+    description:
+      'Quam vulputate dignissim suspendisse in est ante in nibh mauris.',
+    image: './assets/images/chocolate-belga.png',
+    price: 7.0,
+  },
+  {
+    id: 4,
+    flavor: 'Limao',
+    description:
+      'Quam vulputate dignissim suspendisse in est ante in nibh mauris.',
+    image: './assets/images/limao.png',
+    price: 11.0,
   },
 ];
 
@@ -35,8 +49,16 @@ app.get('/', (req, res) => {
   res.send('Hello Blue Modulo 3 Fullstack');
 });
 
-app.get('/acai/find-acai', (req, res) => {
-  res.send(acai);
+// getAll lista de todas paletas
+app.get('/paletas/all-paletas', (req, res) => {
+  res.send(paletas);
+});
+
+//getByIds
+app.get('/paletas/paleta/:id', (req, res) => {
+  const idParam = Number(req.params.id);
+  const chosenPaleta = paletas.find((paleta) => paleta.id === idParam);
+  res.send(chosenPaleta);
 });
 
 app.listen(port, () => {
