@@ -1,35 +1,35 @@
 const paletas = [
   {
     id: 1,
-    flavor: 'Açaí com Leite Condensado',
-    description:
+    sabor: 'Açaí com Leite Condensado',
+    descricao:
       'Quam vulputate dignissim suspendisse in est ante in nibh mauris.',
-    image: './assets/images/acai-com-leite-condensado.png',
-    price: 10.0,
+    foto: './assets/images/acai-com-leite-condensado.png',
+    preco: 10.0,
   },
   {
     id: 2,
-    flavor: 'Banana com Nutella',
-    description:
+    sabor: 'Banana com Nutella',
+    descricao:
       'Quam vulputate dignissim suspendisse in est ante in nibh mauris.',
-    image: './assets/images/banana-com-nutella.png',
-    price: 10.0,
+    foto: './assets/images/banana-com-nutella.png',
+    preco: 10.0,
   },
   {
     id: 3,
-    flavor: 'Chocolate Belga',
-    description:
+    sabor: 'Chocolate Belga',
+    descricao:
       'Quam vulputate dignissim suspendisse in est ante in nibh mauris.',
-    image: './assets/images/chocolate-belga.png',
-    price: 7.0,
+    foto: './assets/images/chocolate-belga.png',
+    preco: 7.0,
   },
   {
     id: 4,
-    flavor: 'Limao',
-    description:
+    sabor: 'Limao',
+    descricao:
       'Quam vulputate dignissim suspendisse in est ante in nibh mauris.',
-    image: './assets/images/limao.png',
-    price: 11.0,
+    foto: './assets/images/limao.png',
+    preco: 11.0,
   },
 ];
 
