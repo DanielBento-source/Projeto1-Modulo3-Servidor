@@ -18,16 +18,16 @@ const createPaletaController = (req, res) => {
 };
 
 const updatePaletaController = (req, res) => {
-  const idParam = Number(req.params.id);
+  const idParam = +req.params.id;
   const paletaEdit = req.body;
-  const updatePaleta = paletaService.updatePaletaService(idParam, paletaEdit);
-  res.send(updatePaleta);
+  const updatedPaleta = paletaService.updatePaletaService(idParam, paletaEdit);
+  res.send(updatedPaleta);
 };
 
 const deletePaletaController = (req, res) => {
-  const idParam = Number(req.params.id);
+  const idParam = req.params.id;
   paletaService.deletePaletaService(idParam);
-  res.send({ message: 'paleta deletada com sucesso!' });
+  res.send({ message: 'Paleta deletada com sucesso!' });
 };
 
 module.exports = {
