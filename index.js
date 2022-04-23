@@ -1,17 +1,17 @@
-const express = require('express');
-const cors = require('cors');
-const routes = require('./src/routes/paleta.route');
-const connectToDatabase = require('./src/database/database');
+const EXPRESS = require('express');
+const CORS = require('cors');
+const ROUTES = require('./src/routes/paleta.route');
+const CONNECT_TO_DATA_BASE = require('./src/database/database');
 
-const port = 3004;
-const app = express();
+const PORT = 3004;
+const APP = EXPRESS();
 
-connectToDatabase();
+CONNECT_TO_DATA_BASE();
 
-app.use(express.json());
-app.use(cors());
-app.use('/paletas', routes);
+APP.use(EXPRESS.json());
+APP.use(CORS());
+APP.use('/paletas', ROUTES);
 
-app.listen(port, () => {
-  console.log(`Servidor rodando em http://localhost:${port} `);
+APP.listen(PORT, () => {
+  console.log(`Servidor rodando em http://localhost:${PORT} `);
 });

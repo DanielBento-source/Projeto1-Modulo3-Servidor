@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const PaletaSchema = new mongoose.Schema({
+const SCHEMA_PALETA = new mongoose.Schema({
   sabor: {
     type: String,
     require: true,
@@ -19,6 +19,6 @@ const PaletaSchema = new mongoose.Schema({
   },
 });
 
-const Paleta = mongoose.model('paletas', PaletaSchema);
+const PALETAS_DB = mongoose.model('paletas', SCHEMA_PALETA);
 
-module.exports = Paleta;
+module.exports = PALETAS_DB;
