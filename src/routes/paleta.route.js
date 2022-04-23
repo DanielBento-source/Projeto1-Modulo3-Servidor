@@ -1,11 +1,32 @@
-const ROUTE = require('express').Router();
+const ROUTES = require('express').Router();
 const CONTROLLER_PALETAS = require('../controllers/paleta.controller');
+const {
+  validId,
+  validObjectBody,
+} = require('../middlewares/paleta.middleware');
 
-ROUTE.get('/all-paletas', CONTROLLER_PALETAS.findAllPaletasController);
-ROUTE.get('/chosen-paleta/:id', CONTROLLER_PALETAS.findByIdPaletaController);
+ROUTES.get('/all-paletas', CONTROLLER_PALETAS.findAllPaletasController);
+ROUTES.get(
+  '/chosen-paleta/:id',
+  validId,
+  CONTROLLER_PALETAS.findByIdPaletaController,
+);
 
-ROUTE.post('/create-paleta', CONTROLLER_PALETAS.createPaletaController);
-ROUTE.put('/update-paleta/:id', CONTROLLER_PALETAS.updatePaletaController);
-ROUTE.delete('/delete-paleta/:id', CONTROLLER_PALETAS.deletePaletaController);
+ROUTES.post(
+  '/create-paleta',
+  validObjectBody,
+  CONTROLLER_PALETAS.createPaletaController,
+);
+ROUTES.put(
+  '/update-paleta/:id',
+  validId,
+  validObjectBody,
+  CONTROLLER_PALETAS.updatePaletaController,
+);
+ROUTES.delete(
+  '/delete-paleta/:id',
+  validId,
+  CONTROLLER_PALETAS.deletePaletaController,
+);
 
-module.exports = ROUTE;
+module.exports = ROUTES;
