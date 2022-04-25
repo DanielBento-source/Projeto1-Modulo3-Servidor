@@ -1,9 +1,13 @@
 const ROUTES = require('express').Router();
 const CONTROLLER_PALETAS = require('../controllers/paleta.controller');
+const CONTROLLER_CARRINHO = require('../controllers/carrinho.controller');
 const {
   validId,
   validObjectBody,
 } = require('../middlewares/paleta.middleware');
+const {
+  validObjectBodyCarrinho,
+} = require('../middlewares/carrinho.middleware');
 
 ROUTES.get('/all-paletas', CONTROLLER_PALETAS.findAllPaletasController);
 ROUTES.get(
@@ -27,6 +31,19 @@ ROUTES.delete(
   '/delete-paleta/:id',
   validId,
   CONTROLLER_PALETAS.deletePaletaController,
+);
+
+// rotas do carrinho de compras
+
+ROUTES.get('/all-carrinho', CONTROLLER_CARRINHO.findAllCarrinhoController);
+ROUTES.post(
+  '/create-carrinho',
+  validObjectBodyCarrinho,
+  CONTROLLER_CARRINHO.createManyItemsCarrinhoController,
+);
+ROUTES.delete(
+  '/delete-carrinho',
+  CONTROLLER_CARRINHO.deleteAllItemsCarrinhoController,
 );
 
 module.exports = ROUTES;
