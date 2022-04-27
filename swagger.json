@@ -17,6 +17,10 @@
     {
       "url": "https://api-elgeladon.herokuapp.com/paletas",
       "description": "API de produção"
+    },
+    {
+      "url": "https://projeto1-modulo3-servidor-production-1d2c.up.railway.app/",
+      "description": "Api de produção"
     }
   ],
   "paths": {
