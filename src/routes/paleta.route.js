@@ -1,3 +1,6 @@
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('../../swagger.json');
+
 const ROUTES = require('express').Router();
 const CONTROLLER_PALETAS = require('../controllers/paleta.controller');
 const CONTROLLER_CARRINHO = require('../controllers/carrinho.controller');
@@ -8,6 +11,12 @@ const {
 const {
   validObjectBodyCarrinho,
 } = require('../middlewares/carrinho.middleware');
+
+// rotas swagger
+ROUTES.use('/api-docs', swaggerUi.serve);
+ROUTES.get('/api-docs', swaggerUi.setup(swaggerDocument));
+
+// rotas padrão
 
 ROUTES.get('/all-paletas', CONTROLLER_PALETAS.findAllPaletasController);
 ROUTES.get(
